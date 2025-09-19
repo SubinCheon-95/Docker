@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  spring_app_service:
+    build: .
+    container_name: spring_app_container
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql_service
+
+  mysql_service:
+    image: mysql
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234 
+      MYSQL_DATABASE: sub6550
+      MYSQL_USER: sub6550
+      MYSQL_PASSWORD: abc1234!
